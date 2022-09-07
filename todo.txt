@@ -3,7 +3,7 @@ Előkészületek:
 1. Backend vizsga starter repo klónozása, átnevezése, npm i
 2. VS CODE indítása, frissítések, ajánlott csomagok telepítése
 3. Csoportos átnevezések 5db:
-    AdatbázisNeve, TáblaNeve1, TáblaNeveN, FK_neve, /api/xyz1, /api/xyzN
+    ingatlan, kategoriak, ingatlanok, kategoria, /api/xyz1, /api/ingatlan
 4. Minta db_n.json állomány törlése, forrás JSON ("N" oldali tábla) másolása, átnevezése: "db_n.json" -ra
 
 Feladatmegoldás:
@@ -17,4 +17,3 @@ Feladatmegoldás:
 7. Postman vagy Thunder Client teszt kollekció importálása
 8. "N" oldali kontroller (route, handlers) aktualizálása - Postman/Thunder Client tesztek aktualizálása
 9. "1" oldali kontroller (route, handlers) aktualizálása - Postman/Thunder Client tesztek aktualizálása
-

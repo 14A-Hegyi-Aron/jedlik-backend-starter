@@ -15,7 +15,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN",
+							"raw": "http://localhost:5000/api/ingatlan",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -35,7 +35,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/101",
+							"raw": "http://localhost:5000/api/ingatlan/101",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -57,7 +57,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_id\": 99,\r\n    \"minMaxExample\": 0,\r\n    \"prepTime\": 12,\r\n    \"isGlutenFree\": true,\r\n    \"description\": \"leírás szövege ide kerül majdanán\",\r\n    \"name\": \"recept neve 99\",\r\n    \"FK_neve\": 1,\r\n    \"dateExample\": \"2020-07-19T22:00:00.000Z\"\r\n}",
+							"raw": "{\r\n    \"_id\": 99,\r\n    \"minMaxExample\": 0,\r\n    \"prepTime\": 12,\r\n    \"isGlutenFree\": true,\r\n    \"description\": \"leírás szövege ide kerül majdanán\",\r\n    \"name\": \"recept neve 99\",\r\n    \"kategoria\": 1,\r\n    \"dateExample\": \"2020-07-19T22:00:00.000Z\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -65,7 +65,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN",
+							"raw": "http://localhost:5000/api/ingatlan",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -94,7 +94,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/1",
+							"raw": "http://localhost:5000/api/ingatlan/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -116,7 +116,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"minMaxExample\": 3,\r\n    \"prepTime\": 12,\r\n    \"isGlutenFree\": true,\r\n    \"description\": \"leírás szövege ide kerül majdanán\",\r\n    \"name\": \"recept neve 91219\",\r\n    \"FK_neve\": 1,\r\n    \"dateExample\": \"2029-07-19T22:00:00.000Z\"\r\n}",
+							"raw": "{\r\n    \"minMaxExample\": 3,\r\n    \"prepTime\": 12,\r\n    \"isGlutenFree\": true,\r\n    \"description\": \"leírás szövege ide kerül majdanán\",\r\n    \"name\": \"recept neve 91219\",\r\n    \"kategoria\": 1,\r\n    \"dateExample\": \"2029-07-19T22:00:00.000Z\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -124,7 +124,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/1",
+							"raw": "http://localhost:5000/api/ingatlan/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -154,7 +154,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/1",
+							"raw": "http://localhost:5000/api/ingatlan/1",
 							"protocol": "http",
 							"host": [
 								"localhost"

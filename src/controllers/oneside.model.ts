@@ -6,13 +6,10 @@ import { AutoIncrementID } from "@typegoose/auto-increment";
 const onesideSchema = new Schema(
     {
         _id: Number,
-        name: {
+        nev: {
             type: String,
             required: true,
-        },
-        email: {
-            type: String,
-            required: true,
+            unique: true,
         },
     },
     // Virtuals are not included in string version of the model instances by default.
@@ -22,6 +19,6 @@ const onesideSchema = new Schema(
 
 onesideSchema.plugin(AutoIncrementID, {});
 
-const onesideModel = model("oneside", onesideSchema, "TáblaNeve1");
+const onesideModel = model("oneside", onesideSchema, "kategoriak");
 
 export default onesideModel;
