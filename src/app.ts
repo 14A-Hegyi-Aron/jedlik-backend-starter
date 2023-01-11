@@ -1,10 +1,10 @@
-import * as express from "express";
-import * as mongoose from "mongoose";
+import express from "express";
+import mongoose from "mongoose";
 import IController from "./interfaces/controller.interface";
-import loggerMiddleware from "./middleware/logger.middleware";
 import onesideModel from "./controllers/oneside.model";
 import nsideModel from "./controllers/nside.model";
-// import * as cors from "cors";
+import morgan from "morgan";
+// import cors from "cors";
 
 export default class App {
     public app: express.Application;
@@ -13,9 +13,13 @@ export default class App {
         this.app = express();
         this.connectToTheDatabase();
         this.app.use(express.json());
-        // Enabled CORS:
+        // Enabled CORS (don't forget to import cors):
         // this.app.use(cors());
-        this.app.use(loggerMiddleware);
+
+        // morgan logger middleware for node.js
+        // settings: https://github.com/expressjs/morgan#predefined-formats
+        this.app.use(morgan(":method :url status=:status :date[clf] length=:res[content-length] time=:response-time ms"));
+
         controllers.forEach(controller => {
             this.app.use("/", controller.router);
         });
@@ -23,13 +27,14 @@ export default class App {
 
     public listen(): void {
         this.app.listen(5000, () => {
-            console.log(`App listening on the port 5000`);
+            console.log("App listening on the port 5000");
         });
     }
 
     private connectToTheDatabase() {
-        // Connect to localhost:27017, create "ingatlan" database if not exist:
-        mongoose.connect("mongodb://localhost:27017/ingatlan", err => {
+        mongoose.set("strictQuery", true); // for disable Deprecation Warning
+        // Connect to localhost:27017, create "AdatbázisNeve" database if not exist:
+        mongoose.connect("mongodb://127.0.0.1:27017/AdatbázisNeve", err => {
             if (err) {
                 console.log("Unable to connect to the server. Please start MongoDB.");
             }
@@ -42,7 +47,8 @@ export default class App {
             console.log("Connected to MongoDB server.");
         });
 
-        onesideModel.init(); // for populate
+        // init models for populate
+        onesideModel.init();
         nsideModel.init();
     }
 }
