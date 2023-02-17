@@ -7,19 +7,19 @@ export default class nsideController implements Controller {
     private nsideM = nsideModel;
 
     constructor() {
-        this.router.get("/api/xyzN", this.getAll);
-        this.router.get("/api/xyzN/:id", this.getById);
-        this.router.get("/api/xyzN/keyword/:keyword", this.getByKeyword);
-        this.router.get(`/api/xyzN/:offset/:limit/:sortingfield/:ascdesc/:filter?`, this.getPaginatedData);
-        this.router.post("/api/xyzN", this.create);
-        this.router.patch("/api/xyzN/:id", this.modifyPATCH);
-        this.router.put("/api/xyzN/:id", this.modifyPUT);
-        this.router.delete("/api/xyzN/:id", this.delete);
+        this.router.get("/api/ingatlan", this.getAll);
+        this.router.get("/api/ingatlan/:id", this.getById);
+        this.router.get("/api/ingatlan/keyword/:keyword", this.getByKeyword);
+        this.router.get(`/api/ingatlan/:offset/:limit/:sortingfield/:ascdesc/:filter?`, this.getPaginatedData);
+        this.router.post("/api/ingatlan", this.create);
+        this.router.patch("/api/ingatlan/:id", this.modifyPATCH);
+        this.router.put("/api/ingatlan/:id", this.modifyPUT);
+        this.router.delete("/api/ingatlan/:id", this.delete);
     }
 
     private getAll = async (req: Request, res: Response) => {
         try {
-            const data = await this.nsideM.find().populate("FK_neve");
+            const data = await this.nsideM.find().populate("kategoria");
             res.send(data);
         } catch (error) {
             res.status(400).send({ message: error.message });
@@ -29,7 +29,7 @@ export default class nsideController implements Controller {
     private getById = async (req: Request, res: Response) => {
         try {
             const id = req.params.id;
-            const document = await this.nsideM.findById(id).populate("FK_neve", "-_id");
+            const document = await this.nsideM.findById(id).populate("kategoria", "-_id");
             if (document) {
                 res.send(document);
             } else {
@@ -52,18 +52,18 @@ export default class nsideController implements Controller {
 
             const data = await this.nsideM.aggregate([
                 {
-                    $lookup: { from: "TáblaNeve1", foreignField: "_id", localField: "FK_neve", as: "FK_neve" },
+                    $lookup: { from: "kategoriak", foreignField: "_id", localField: "kategoria", as: "kategoria" },
                     // from: The name of the one-side collection!!!
                     // foreignField: Linking field of one-side collection (here the PK: _id)
-                    // localField: Linking field of n-side collection (here the FK: FK_neve)
-                    // as: alias name, here "FK_neve", but it can be anything you like
+                    // localField: Linking field of n-side collection (here the FK: kategoria)
+                    // as: alias name, here "kategoria", but it can be anything you like
                 },
                 {
-                    $match: { "FK_neve.field1": myRegex },
+                    $match: { "kategoria.field1": myRegex },
                 },
                 {
                     // convert array of objects to simple array (alias name):
-                    $unwind: "$FK_neve",
+                    $unwind: "$kategoria",
                 },
             ]);
             res.send(data);
@@ -119,7 +119,7 @@ export default class nsideController implements Controller {
         try {
             const id = req.params.id;
             const body = req.body;
-            const updatedDoc = await this.nsideM.findByIdAndUpdate(id, body, { new: true, runValidators: true }).populate("FK_neve", "-_id");
+            const updatedDoc = await this.nsideM.findByIdAndUpdate(id, body, { new: true, runValidators: true }).populate("kategoria", "-_id");
             if (updatedDoc) {
                 res.send(updatedDoc);
             } else {
@@ -136,7 +136,7 @@ export default class nsideController implements Controller {
             const body = req.body;
             const modificationResult = await this.nsideM.replaceOne({ _id: id }, body, { runValidators: true });
             if (modificationResult.modifiedCount) {
-                const updatedDoc = await this.nsideM.findById(id).populate("FK_neve", "-_id");
+                const updatedDoc = await this.nsideM.findById(id).populate("kategoria", "-_id");
                 res.send(updatedDoc);
             } else {
                 res.status(404).send({ message: `Document with id ${id} not found!` });

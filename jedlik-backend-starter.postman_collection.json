@@ -23,7 +23,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN"
+								"ingatlan"
 							]
 						}
 					},
@@ -43,7 +43,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"ingatlan",
 								"101"
 							]
 						}
@@ -56,7 +56,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/keyword/k2",
+							"raw": "http://localhost:5000/api/ingatlan/keyword/k2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -64,7 +64,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"ingatlan",
 								"keyword",
 								"k2"
 							]
@@ -78,7 +78,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/0/2/prepTime/DESC/kerül",
+							"raw": "http://localhost:5000/api/ingatlan/0/2/prepTime/DESC/kerül",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -86,7 +86,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"ingatlan",
 								"0",
 								"2",
 								"prepTime",
@@ -120,7 +120,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN"
+								"ingatlan"
 							]
 						}
 					},
@@ -149,7 +149,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"ingatlan",
 								"1"
 							]
 						}
@@ -179,7 +179,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"ingatlan",
 								"1"
 							]
 						}
@@ -209,7 +209,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"ingatlan",
 								"1"
 							]
 						}

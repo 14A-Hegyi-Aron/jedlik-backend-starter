@@ -5,60 +5,29 @@ import { Schema, model } from "mongoose";
 const nsideSchema = new Schema(
     {
         _id: Number, // default type of PK (with _id identifier): Schema.Types.ObjectId
-        FK_neve: {
+        kategoria: {
             ref: "oneside", // "onside" -> 1 oldali modell neve, nem kell átírni!
             type: Number,
             required: true,
         },
-        name: {
-            type: String,
-            required: true,
-            unique: true,
-        },
-        description: {
+        leiras: {
             type: String,
             required: true,
         },
-        isGlutenFree: {
+        hirdetesDatuma: {
+            type: Date,
+            default: new Date(),
+        },
+        tehermentes: {
             type: Boolean,
             required: true,
         },
-        prepTime: {
+        ar: {
             type: Number,
             required: true,
         },
-        minMaxExample: {
-            type: Number,
-            min: [1, "Too few stars, got {VALUE}"],
-            max: [5, "Too many stars, got {VALUE}"],
-            required: [true, "minMaxExample field is required"],
-        },
-        enumExample: {
+        kepUrl: {
             type: String,
-            enum: {
-                values: ["Coffee", "Tea"],
-                message: "{VALUE} is not supported",
-            },
-        },
-        customValidatorExample: {
-            type: Number,
-            validate: {
-                validator: function (v: number) {
-                    return v % 2 == 0;
-                },
-                message: "Nem páros számot adott meg!",
-            },
-        },
-        dateExample: {
-            type: Date,
-            default: new Date(),
-            max: ["2100-12-31", "Csak 21. századi dátumot adhat meg!"],
-            validate: {
-                validator: function (v: Date) {
-                    return v >= new Date();
-                },
-                message: "Az aktuális dátumnál nem adhat meg korábbi dátumot!",
-            },
         },
     },
     // Mongoose Virtuals: https://mongoosejs.com/docs/tutorials/virtuals.html
@@ -73,13 +42,13 @@ const nsideSchema = new Schema(
 // You can give the "populateField" any name you want:
 // nsideSchema.virtual("populateField", {
 //     ref: "oneside",
-//     localField: "FK_neve",
+//     localField: "kategoria",
 //     foreignField: "_id",
 //     justOne: true,
 // });
 // Use virtual for populate in controller:
 // const data = await this.nsideM.find().populate("populateField", "-_id field1 field2 -field3 ...");
 
-const nsideModel = model("nside", nsideSchema, "TáblaNeveN");
+const nsideModel = model("nside", nsideSchema, "ingatlanok");
 
 export default nsideModel;

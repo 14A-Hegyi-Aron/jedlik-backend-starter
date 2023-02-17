@@ -33,8 +33,8 @@ export default class App {
 
     private connectToTheDatabase() {
         mongoose.set("strictQuery", true); // for disable Deprecation Warning
-        // Connect to localhost:27017, create "AdatbázisNeve" database if not exist:
-        mongoose.connect("mongodb://127.0.0.1:27017/AdatbázisNeve", err => {
+        // Connect to localhost:27017, create "ingatlan" database if not exist:
+        mongoose.connect("mongodb://127.0.0.1:27017/ingatlan", err => {
             if (err) {
                 console.log("Unable to connect to the server. Please start MongoDB.");
             }

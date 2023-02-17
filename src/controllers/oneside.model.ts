@@ -5,13 +5,10 @@ import { Schema, model } from "mongoose";
 const onesideSchema = new Schema(
     {
         _id: Number,
-        name: {
+        nev: {
             type: String,
             required: true,
-        },
-        email: {
-            type: String,
-            required: true,
+            unique: true,
         },
     },
     // Virtuals are not included in string version of the model instances by default.
@@ -20,6 +17,6 @@ const onesideSchema = new Schema(
     { versionKey: false },
 );
 
-const onesideModel = model("oneside", onesideSchema, "TáblaNeve1");
+const onesideModel = model("oneside", onesideSchema, "kategoriak");
 
 export default onesideModel;
