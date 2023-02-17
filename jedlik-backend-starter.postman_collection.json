@@ -15,7 +15,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN",
+							"raw": "http://localhost:5000/api/hirdetesek",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -23,7 +23,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN"
+								"hirdetesek"
 							]
 						}
 					},
@@ -35,7 +35,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/101",
+							"raw": "http://localhost:5000/api/hirdetesek/101",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -43,7 +43,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"hirdetesek",
 								"101"
 							]
 						}
@@ -56,7 +56,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/keyword/k2",
+							"raw": "http://localhost:5000/api/hirdetesek/keyword/k2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -64,7 +64,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"hirdetesek",
 								"keyword",
 								"k2"
 							]
@@ -78,7 +78,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/0/2/prepTime/DESC/kerül",
+							"raw": "http://localhost:5000/api/hirdetesek/0/2/prepTime/DESC/kerül",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -86,7 +86,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"hirdetesek",
 								"0",
 								"2",
 								"prepTime",
@@ -104,7 +104,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_id\": 99,\r\n    \"minMaxExample\": 0,\r\n    \"prepTime\": 12,\r\n    \"isGlutenFree\": true,\r\n    \"description\": \"leírás szövege ide kerül majdanán\",\r\n    \"name\": \"recept neve 99\",\r\n    \"FK_neve\": 1,\r\n    \"dateExample\": \"2020-07-19T22:00:00.000Z\"\r\n}",
+							"raw": "{\r\n    \"_id\": 99,\r\n    \"minMaxExample\": 0,\r\n    \"prepTime\": 12,\r\n    \"isGlutenFree\": true,\r\n    \"description\": \"leírás szövege ide kerül majdanán\",\r\n    \"name\": \"recept neve 99\",\r\n    \"kategoria_id\": 1,\r\n    \"dateExample\": \"2020-07-19T22:00:00.000Z\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -112,7 +112,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN",
+							"raw": "http://localhost:5000/api/hirdetesek",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -120,7 +120,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN"
+								"hirdetesek"
 							]
 						}
 					},
@@ -141,7 +141,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/1",
+							"raw": "http://localhost:5000/api/hirdetesek/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -149,7 +149,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"hirdetesek",
 								"1"
 							]
 						}
@@ -163,7 +163,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"minMaxExample\": 3,\r\n    \"prepTime\": 12,\r\n    \"isGlutenFree\": true,\r\n    \"description\": \"leírás szövege ide kerül majdanán\",\r\n    \"name\": \"recept neve 91219\",\r\n    \"FK_neve\": 1,\r\n    \"dateExample\": \"2029-07-19T22:00:00.000Z\"\r\n}",
+							"raw": "{\r\n    \"minMaxExample\": 3,\r\n    \"prepTime\": 12,\r\n    \"isGlutenFree\": true,\r\n    \"description\": \"leírás szövege ide kerül majdanán\",\r\n    \"name\": \"recept neve 91219\",\r\n    \"kategoria_id\": 1,\r\n    \"dateExample\": \"2029-07-19T22:00:00.000Z\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -171,7 +171,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/1",
+							"raw": "http://localhost:5000/api/hirdetesek/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -179,7 +179,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"hirdetesek",
 								"1"
 							]
 						}
@@ -201,7 +201,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/1",
+							"raw": "http://localhost:5000/api/hirdetesek/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -209,7 +209,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyzN",
+								"hirdetesek",
 								"1"
 							]
 						}
@@ -227,7 +227,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/xyz1",
+							"raw": "http://localhost:5000/api/kategoriak",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -235,7 +235,7 @@
 							"port": "5000",
 							"path": [
 								"api",
-								"xyz1"
+								"kategoriak"
 							]
 						}
 					},

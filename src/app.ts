@@ -26,15 +26,16 @@ export default class App {
     }
 
     public listen(): void {
-        this.app.listen(5000, () => {
-            console.log("App listening on the port 5000");
+        const port = process.env.PORT || 5000;
+        this.app.listen(port, () => {
+            console.log(`App listening on port ${port}`);
         });
     }
 
     private connectToTheDatabase() {
         mongoose.set("strictQuery", true); // for disable Deprecation Warning
-        // Connect to localhost:27017, create "AdatbázisNeve" database if not exist:
-        mongoose.connect("mongodb://127.0.0.1:27017/AdatbázisNeve", err => {
+        // Connect to localhost:27017, create "hahu" database if not exist:
+        mongoose.connect("mongodb+srv://m001-student:m001-student@sandbox.3fiqf.mongodb.net/?retryWrites=true&w=majority", err => {
             if (err) {
                 console.log("Unable to connect to the server. Please start MongoDB.");
             }

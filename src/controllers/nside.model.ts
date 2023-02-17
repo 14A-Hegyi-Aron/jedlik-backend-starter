@@ -5,66 +5,38 @@ import { Schema, model } from "mongoose";
 
 const nsideSchema = new Schema(
     {
-        _id: Number, // default type of PK (with _id identifier): Schema.Types.ObjectId
-        FK_neve: {
-            ref: "oneside", // "onside" -> 1 oldali modell neve, nem kell átírni!
+        _id: Number,
+        kategoria_id: {
             type: Number,
             required: true,
         },
-        name: {
+        cim: {
             type: String,
             required: true,
             unique: true,
-            maxLength: 60,
+            maxLength: 100,
         },
-        description: {
+        evjarat: {
             type: String,
-            required: true,
-            minLength: 10,
-            maxLength: [500, "A leírás maximum 500 karakter lehet!"],
+            maxLength: 10,
         },
-        isGlutenFree: {
-            type: Boolean,
-            required: true,
-        },
-        prepTime: {
-            type: Number,
-            required: true,
-            default: 12,
-        },
-        minMaxExample: {
-            type: Number,
-            min: [1, "Too few stars, got {VALUE}"],
-            max: [5, "Too many stars, got {VALUE}"],
-            required: [true, "minMaxExample field is required"],
-        },
-        enumExample: {
+        km_allas: Number,
+        szin: String,
+        uzemanyag: {
             type: String,
-            enum: {
-                values: ["Coffee", "Tea"],
-                message: "{VALUE} is not supported",
-            },
+            enum: ["Benzin", "Dízel", "Elektromos", "Hibrid", "LPG", "CNG", "Hidrogén"],
+            message: "{VALUE} is not supported",
         },
-        customValidatorExample: {
+        hengerurtartalom: Number,
+        teljesitmeny: Number,
+        serulesmentes: Boolean,
+        leiras: String,
+        hirdetes_datum: String,
+        vetelar: {
             type: Number,
-            validate: {
-                validator: function (v: number) {
-                    return v % 2 == 0;
-                },
-                message: "Nem páros számot adott meg!",
-            },
+            required: true,
         },
-        dateExample: {
-            type: Date,
-            default: new Date(),
-            max: ["2100-12-31", "Csak 21. századi dátumot adhat meg!"],
-            validate: {
-                validator: function (v: Date) {
-                    return v >= new Date();
-                },
-                message: "Az aktuális dátumnál nem adhat meg korábbi dátumot!",
-            },
-        },
+        kepek: [String],
     },
     // Mongoose Virtuals: https://mongoosejs.com/docs/tutorials/virtuals.html
     // Virtuals are not included in string version of the model instances by default.
@@ -77,7 +49,7 @@ const nsideSchema = new Schema(
 // You can give the "virtualPop" any name you want:
 nsideSchema.virtual("virtualPop", {
     ref: "oneside",
-    localField: "FK_neve",
+    localField: "kategoria_id",
     foreignField: "_id", //ref_Field
     justOne: true,
 });
@@ -85,6 +57,6 @@ nsideSchema.virtual("virtualPop", {
 // Use virtual for populate in nSide controller:
 // const data = await this.nsideM.find().populate("populateFieldNside", "-_id field1 field2 -field3 ...");
 
-const nsideModel = model("nside", nsideSchema, "TáblaNeveN");
+const nsideModel = model("nside", nsideSchema, "hirdetesek");
 
 export default nsideModel;

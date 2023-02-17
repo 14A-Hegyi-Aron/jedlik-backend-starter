@@ -7,12 +7,12 @@ export default class nsideController implements Controller {
     private onesideM = onesideModel;
 
     constructor() {
-        this.router.get("/api/xyz1", this.getAll);
+        this.router.get("/api/kategoriak", this.getAll);
     }
 
     private getAll = async (req: Request, res: Response) => {
         try {
-            const data = await this.onesideM.find().populate("virtualPop");
+            const data = await this.onesideM.find().sort({ _id: 1 });
             res.send(data);
         } catch (error) {
             res.status(400).send({ message: error.message });

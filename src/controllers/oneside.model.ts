@@ -6,13 +6,11 @@ import { Schema, model } from "mongoose";
 const onesideSchema = new Schema(
     {
         _id: Number,
-        name: {
+        nev: {
             type: String,
             required: true,
-        },
-        email: {
-            type: String,
-            required: true,
+            unique: true,
+            maxLength: 30,
         },
     },
     // Virtuals are not included in string version of the model instances by default.
@@ -26,13 +24,13 @@ const onesideSchema = new Schema(
 onesideSchema.virtual("virtualPop", {
     ref: "nside",
     localField: "_id",
-    foreignField: "FK_neve", // ref_Field
+    foreignField: "kategoria_id", // ref_Field
     justOne: false,
 });
 
 // Use virtual for populate in oneSide controller:
 // const data = await this.onesideM.find().populate("populateFieldOneSide", "-_id field1 field2 -field3 ...");
 
-const onesideModel = model("oneside", onesideSchema, "TáblaNeve1");
+const onesideModel = model("oneside", onesideSchema, "kategoriak");
 
 export default onesideModel;
