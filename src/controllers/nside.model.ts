@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
 // https://mongoosejs.com/docs/typescript.html
 // https://mongoosejs.com/docs/validation.html
+// https://transform.tools/json-to-mongoose
 
 const nsideSchema = new Schema(
     {
@@ -14,6 +15,7 @@ const nsideSchema = new Schema(
             type: String,
             required: true,
             unique: true,
+            maxLength: 60,
         },
         description: {
             type: String,
@@ -28,6 +30,7 @@ const nsideSchema = new Schema(
         prepTime: {
             type: Number,
             required: true,
+            default: 12,
         },
         minMaxExample: {
             type: Number,
@@ -66,21 +69,21 @@ const nsideSchema = new Schema(
     // Mongoose Virtuals: https://mongoosejs.com/docs/tutorials/virtuals.html
     // Virtuals are not included in string version of the model instances by default.
     // To include them, set the virtuals option to true on schema’s toObject and toJSON options.
-    // { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
-    { versionKey: false },
+    { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
 
 // Mongoose also supports populating virtuals.
 // Help: https://mongoosejs.com/docs/tutorials/virtuals.html#populate
-// You can give the "populateField" any name you want:
-// nsideSchema.virtual("populateField", {
-//     ref: "oneside",
-//     localField: "FK_neve",
-//     foreignField: "_id",
-//     justOne: true,
-// });
-// Use virtual for populate in controller:
-// const data = await this.nsideM.find().populate("populateField", "-_id field1 field2 -field3 ...");
+// You can give the "virtualPop" any name you want:
+nsideSchema.virtual("virtualPop", {
+    ref: "oneside",
+    localField: "FK_neve",
+    foreignField: "_id", //ref_Field
+    justOne: true,
+});
+
+// Use virtual for populate in nSide controller:
+// const data = await this.nsideM.find().populate("populateFieldNside", "-_id field1 field2 -field3 ...");
 
 const nsideModel = model("nside", nsideSchema, "TáblaNeveN");
 
